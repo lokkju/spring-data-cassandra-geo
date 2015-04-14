@@ -3,6 +3,7 @@ package com.eltoro.geo.cassandra;
 import com.eltoro.geo.NoSqlGeoClient;
 import com.eltoro.geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.mapping.Table;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.support.BasicMapId;
@@ -15,13 +16,10 @@ import java.util.concurrent.Callable;
 /**
  * Created by ljacobsen on 4/14/15.
  */
-public class CassandraNoSqlGeoClient<T extends Table> extends NoSqlGeoClient<T>
+public class CassandraNoSqlGeoClient<T> extends NoSqlGeoClient<T>
 {
+    @Autowired
     private GeoCassandraRepository<T> repository;
-
-    public CassandraNoSqlGeoClient(GeoCassandraRepository<T> cassandraRepository) {
-        this.repository = cassandraRepository;
-    }
 
     public <S extends T> ListenableFuture<S> save(final S entity) {
         return getExecutorService().submit( new Callable<S>()

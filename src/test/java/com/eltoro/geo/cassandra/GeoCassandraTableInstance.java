@@ -1,0 +1,27 @@
+package com.eltoro.geo.cassandra;
+
+import org.springframework.cassandra.core.PrimaryKeyType;
+import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
+import org.springframework.data.cassandra.mapping.Table;
+
+/**
+ * Created by ljacobsen on 4/14/15.
+ */
+@Table
+public class GeoCassandraTableInstance
+{
+    @PrimaryKeyColumn( ordinal = 0, type = PrimaryKeyType.PARTITIONED)
+    private long s2_hash_key;
+
+    @PrimaryKeyColumn( ordinal = 0)
+    private long s2_cell_id;
+
+    private String data;
+
+    public GeoCassandraTableInstance(long s2_hash_key, long s2_cell_id, String data){
+        this.s2_hash_key = s2_hash_key;
+        this.s2_cell_id = s2_cell_id;
+        this.data = data;
+    }
+
+}
