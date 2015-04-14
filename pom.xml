@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.eltoro.maven.poms</groupId>
+        <artifactId>parent-iptools-libs-pom</artifactId>
+        <version>1.0.0</version>
+    </parent>
+	<groupId>com.eltoro.geo</groupId>
+	<artifactId>nosql-geo-cassandra</artifactId>
+	<version>1.0.0</version>
+	<name>nosql-geo-cassandra</name>
+    <description>
+        Cassandra Client for nosql-geo
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.eltoro.geo</groupId>
+            <artifactId>nosql-geo-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.common</groupId>
+            <artifactId>s2-geometry</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-cassandra</artifactId>
+            <version>1.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+        </dependency>
+    </dependencies>
+</project>
