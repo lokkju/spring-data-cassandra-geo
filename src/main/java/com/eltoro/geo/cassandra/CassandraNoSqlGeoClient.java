@@ -1,6 +1,7 @@
 package com.eltoro.geo.cassandra;
 
 import com.eltoro.geo.NoSqlGeoClient;
+import com.eltoro.geo.models.NoSqlGeoEntity;
 import com.eltoro.geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.concurrent.Callable;
 /**
  * Created by ljacobsen on 4/14/15.
  */
-public class CassandraNoSqlGeoClient<T> extends NoSqlGeoClient<T>
+public class CassandraNoSqlGeoClient<T extends NoSqlGeoEntity> extends NoSqlGeoClient<T>
 {
     @Autowired
     private GeoCassandraRepository<T> repository;
@@ -51,7 +52,7 @@ public class CassandraNoSqlGeoClient<T> extends NoSqlGeoClient<T>
             @Override
             public Iterable<S> call() throws Exception
             {
-                return repository.findByCellId( generateHashKey(cellId, getHashKeyLength()), cellId );
+                return repository.findByS2HashKeyAndS2CellId( generateHashKey(cellId, getHashKeyLength()), cellId );
             }
         } );
     }
