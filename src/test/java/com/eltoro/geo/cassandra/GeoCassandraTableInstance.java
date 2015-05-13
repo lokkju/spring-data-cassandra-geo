@@ -1,6 +1,6 @@
 package com.eltoro.geo.cassandra;
 
-import com.eltoro.geo.models.NoSqlGeoEntity;
+import geo.models.NoSqlGeoEntity;
 import org.springframework.cassandra.core.PrimaryKeyType;
 import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.mapping.Table;

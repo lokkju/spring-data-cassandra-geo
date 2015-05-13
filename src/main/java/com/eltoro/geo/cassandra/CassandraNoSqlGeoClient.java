@@ -1,17 +1,12 @@
 package com.eltoro.geo.cassandra;
 
-import com.eltoro.geo.NoSqlGeoClient;
-import com.eltoro.geo.models.NoSqlGeoEntity;
-import com.eltoro.geo.models.S2HashRange;
+import geo.NoSqlGeoClient;
+import geo.models.NoSqlGeoEntity;
+import geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.cassandra.mapping.Table;
-import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.data.cassandra.repository.support.BasicMapId;
-import org.springframework.scheduling.annotation.Async;
 import org.testng.Assert;
 
-import java.util.List;
 import java.util.concurrent.Callable;
 
 /**

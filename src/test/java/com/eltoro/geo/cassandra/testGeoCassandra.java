@@ -1,45 +1,26 @@
 package com.eltoro.geo.cassandra;
 
 import com.datastax.driver.core.Session;
-import com.eltoro.geo.models.S2HashRange;
+import geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
-import org.apache.cassandra.exceptions.ConfigurationException;
-import org.apache.thrift.transport.TTransportException;
 import org.cassandraunit.spring.*;
-import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cassandra.config.KeyspaceAttributes;
 import org.springframework.cassandra.core.keyspace.CreateKeyspaceSpecification;
 import org.springframework.cassandra.core.keyspace.KeyspaceOption;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-import org.springframework.data.cassandra.config.CassandraClusterFactoryBean;
-import org.springframework.data.cassandra.config.CassandraSessionFactoryBean;
-import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
-import org.springframework.data.cassandra.convert.CassandraConverter;
-import org.springframework.data.cassandra.convert.MappingCassandraConverter;
 import org.springframework.data.cassandra.core.CassandraOperations;
-import org.springframework.data.cassandra.core.CassandraTemplate;
-import org.springframework.data.cassandra.mapping.BasicCassandraMappingContext;
-import org.springframework.data.cassandra.mapping.CassandraMappingContext;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
