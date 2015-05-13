@@ -1,14 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.eltoro.maven.poms</groupId>
-        <artifactId>parent-iptools-libs-pom</artifactId>
-        <version>1.0.0</version>
-    </parent>
+
 	<groupId>com.eltoro.geo</groupId>
 	<artifactId>nosql-geo-cassandra</artifactId>
 	<version>1.0.0</version>
+
 	<name>nosql-geo-cassandra</name>
     <description>
         Cassandra Client for nosql-geo
@@ -29,6 +26,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+						<version>1.7.11</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -38,10 +36,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+						<version>1.16.4</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
+						<version>6.8.17</version>
         </dependency>
         <dependency>
             <groupId>org.cassandraunit</groupId>
