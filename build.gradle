@@ -12,7 +12,7 @@ scmVersion {
     versionCreator 'versionWithBranch'
 }
 
-group = 'com.lokkju.geo'
+group = 'com.github.lokkju'
 project.version = scmVersion.version
 
 description = 'spring-data-cassandra-geo'
