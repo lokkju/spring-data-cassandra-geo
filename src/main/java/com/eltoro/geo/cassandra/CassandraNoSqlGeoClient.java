@@ -1,11 +1,10 @@
 package com.eltoro.geo.cassandra;
 
-import geo.NoSqlGeoClient;
-import geo.models.NoSqlGeoEntity;
-import geo.models.S2HashRange;
+import com.eltoro.geo.NoSqlGeoClient;
+import com.eltoro.geo.models.NoSqlGeoEntity;
+import com.eltoro.geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.Assert;
 
 import java.util.concurrent.Callable;
 
@@ -54,7 +53,9 @@ public class CassandraNoSqlGeoClient<T extends NoSqlGeoEntity> extends NoSqlGeoC
 
     @Override
     public <S extends T> ListenableFuture<Iterable<S>> findRange( final S2HashRange range){
-        Assert.assertEquals( generateHashKey( range.getRangeMin(), getHashKeyLength() ),generateHashKey( range.getRangeMax(), getHashKeyLength() ) );
+        if(generateHashKey( range.getRangeMin(), getHashKeyLength() ) != generateHashKey( range.getRangeMax(), getHashKeyLength() )) {
+            throw new IllegalArgumentException("Range is must not cover multiple hash keys");
+        }
         return getExecutorService().submit( new Callable<Iterable<S>>()
         {
             @Override

@@ -1,7 +1,7 @@
 package com.eltoro.geo.cassandra;
 
 import com.datastax.driver.core.Session;
-import geo.models.S2HashRange;
+import com.eltoro.geo.models.S2HashRange;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.cassandraunit.spring.*;
 import org.springframework.beans.factory.annotation.Autowired;

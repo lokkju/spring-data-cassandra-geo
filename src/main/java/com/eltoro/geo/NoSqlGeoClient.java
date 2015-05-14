@@ -1,7 +1,7 @@
-package geo;
+package com.eltoro.geo;
 
-import geo.models.NoSqlGeoEntity;
-import geo.models.S2HashRange;
+import com.eltoro.geo.models.NoSqlGeoEntity;
+import com.eltoro.geo.models.S2HashRange;
 import com.google.common.base.Function;
 import com.google.common.geometry.*;
 import com.google.common.util.concurrent.Futures;
@@ -191,7 +191,7 @@ public abstract class NoSqlGeoClient<T extends NoSqlGeoEntity>
         List<S2HashRange> ranges = mergeCells(s2CellUnion);
         ArrayList<ListenableFuture<Iterable<S>>> listenableFutures = new ArrayList<ListenableFuture<Iterable<S>>>(  );
         for (S2HashRange unsplitRange: ranges) {
-            for ( final S2HashRange range : unsplitRange.trySplit(getHashKeyLength())) {
+            for ( final S2HashRange range : unsplitRange.trySplit(hashKeyLength)) {
                 final ListenableFuture<Iterable<S>> listenableFuture = this.findRange( range );
                 listenableFutures.add( listenableFuture );
             }

@@ -1,4 +1,4 @@
-package geo.models;
+package com.eltoro.geo.models;
 
 /**
  * Created by ljacobsen on 4/13/15.

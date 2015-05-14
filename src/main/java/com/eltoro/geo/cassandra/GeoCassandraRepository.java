@@ -1,6 +1,6 @@
 package com.eltoro.geo.cassandra;
 
-import geo.models.NoSqlGeoEntity;
+import com.eltoro.geo.models.NoSqlGeoEntity;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 

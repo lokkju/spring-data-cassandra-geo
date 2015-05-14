@@ -1,6 +1,6 @@
-package geo.models;
+package com.eltoro.geo.models;
 
-import geo.NoSqlGeoClient;
+import com.eltoro.geo.NoSqlGeoClient;
 import lombok.Getter;
 import lombok.Setter;
 
