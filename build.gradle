@@ -1,19 +1,8 @@
-buildscript {
-    repositories {
-        jcenter()
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
-    }
-    dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE'
-    }
-}
 plugins {
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
     id 'java'
     id 'maven'
 }
-apply plugin: 'spring-boot'
 
 scmVersion {
     tag {
@@ -38,12 +27,14 @@ configurations {
 repositories {
     mavenLocal()
     jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
     maven { url "https://jitpack.io" }
 }
 
 dependencies {
     compile group: 'com.github.lokkju', name: 's2-geometry-reloaded', version:'0.5.0-RELEASE'
-    compile group: 'org.springframework.data', name: 'spring-data-cassandra'
+    compile group: 'org.springframework.data', name: 'spring-data-cassandra', version: '1.1.2.RELEASE'
 
     providedRuntime group: 'org.projectlombok', name: 'lombok', version:'1.16.4'
 
