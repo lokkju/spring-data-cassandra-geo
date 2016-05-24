@@ -10,6 +10,7 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.apachecommons.CommonsLog;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.concurrent.*;
 /**
  * Created by ljacobsen on 4/11/15.
  */
-@Slf4j
+@CommonsLog
 public abstract class NoSqlGeoClient<T extends NoSqlGeoEntity>
 {
 
@@ -186,7 +187,7 @@ public abstract class NoSqlGeoClient<T extends NoSqlGeoEntity>
         S2RegionCoverer coverer = new S2RegionCoverer();
         coverer.setMinLevel( minLevel );
         coverer.setMaxLevel( maxLevel );
-        coverer.setMaxCells( 200 );
+        coverer.setMaxCells( maxCells );
         S2CellUnion s2CellUnion = coverer.getCovering(polygon);
         List<S2HashRange> ranges = mergeCells(s2CellUnion);
         ArrayList<ListenableFuture<Iterable<S>>> listenableFutures = new ArrayList<ListenableFuture<Iterable<S>>>(  );
